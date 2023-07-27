@@ -1,87 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>RNGesus</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            .page-container {
-                display: grid;
-                place-items: center;
-            }
-            .background {
-                background-color: #333;
-            }
-            html, body, .page-container {
-                height: 100%;
-                width: 100%;
-                margin: 0;
-                padding: 0;
-            }
-            .rngesus-photo {
-                border: 1px solid lightgray;
-                background-color: #AAA;
-                box-shadow: inset 0 0 5rem #013;
-                max-width: 100%;
-            }
-            .card {
-                background-color: #fff;
-                padding: 1rem;
-                box-shadow: 0 0 5rem #000;
-            }
-        </style>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <!-- Global site tag (gtag.js) - Google Analytics -->
+<head>
+    <title>Ministry of Faith</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #eee;
+            font-family: Arial, sans-serif;
+        }
+        .product {
+            border: 1px solid #eee;
+            margin: 15px;
+            padding: 10px;
+            width: calc(100% / 4 - 60px);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #1e2029 0%, #232634 100%);
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+        .product:hover {
+            transform: scale(1.03);
+        }
+        .product img {
+            width: 100%;
+            height: 50%;
+        }
+        .menu-item {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #eee;
+        }
+        header {
+            background-color: #222;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header img {
+            max-width: 60px;
+            max-height: 60px;
+        }
+        h2, p {
+            color: #ddd;
+            margin: 5px 0;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176137482-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'UA-176137482-1');
-	</script>
-    </head>
-    <body>
-        <div class="page-container background">
-            <div class="center">
-                <div class="card">
-                    <h1 class="text-center">RNGesus</h1>
-                    <img class="rngesus-photo mb-3" src="rngesus.png" />
-                    <p>
-                        Wow, Hail RNGesus! provider of random numbers.
-                    </p>
-                    <p>
-                        What is the size of the number that you seek?
-                    </p>
-                    <form id="number-generator">
-                        <div class="input-group">
-                            <input class="form-control" required type="number" value="20" id="out-of" />
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-outline-dark">Generate!</button>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="d-none alert alert-dark mt-3" id="result-template">
-                        You got a <strong id="result"></strong>
-                    </div>
-                </div>
-            </div>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Logo" />
+        <h2>Ministry of Faith</h2>
+        <nav>
+            <a href="index.html" class="menu-item">Home</a>
+            <a href="about.html" class="menu-item">About</a>
+        </nav>
+    </header>
+    <main>
+        <div class="product">
+            <img src="dice.jpg" alt="Dice" />
+            <h2>Orbuculum Dice</h2>
+            <p>$8.00</p>
+            <p>Enigmatic cubes from the beyond. Will they roll in your favor, or direct you towards a fate unknown?</p>
         </div>
-        <script>
-            function submit(e) {
-                e.preventDefault();
-                return false;
-            }
-            var form = document.querySelector("#number-generator");
-            form.addEventListener("submit", function (e) {
-                e.preventDefault();
-                var template = document.querySelector("#result-template")
-                template.classList.remove("d-none");
-                var number = document.querySelector("#out-of");
-                var result = Math.ceil(Math.random() * parseInt(number.value));
-                var resultContainer = document.querySelector("#result");
-                resultContainer.innerHTML = result;
-            });
-        </script>
-    </body>
+        <div class="product">
+            <img src="candles.jpg" alt="Occult Candles" />
+            <h2>Whispering Wax Candles</h2>
+            <p>$15.00</p>
+            <p>Glowing embers encased in waxen pillars. They hiss secrets only the worthy can discern. Illuminate your path, or stay shrouded in darkness?</p>
+        </div>
+        <div class="product">
+            <img src="trinkets.jpg" alt="Trinkets" />
+            <h2>Ethereal Trinkets</h2>
+            <p>$5.00</p>
+            <p>Charms from a different plane, vibrating with unseen energy. Pocket dimensions in your grasp, or simply strange curiosities?</p>
+        </div>
+        <div class="product">
+            <img src="herbs.jpg" alt="Scented Herbs" />
+            <h2>Druidic Breath Herbs</h2>
+            <p>$10.00</p>
+            <p>Aromatic herbs harvested under the waning moon. Will they soothe your senses or awaken the green spirit that slumbers within?</p>
+        </div>
+    </main>
+</body>
 </html>

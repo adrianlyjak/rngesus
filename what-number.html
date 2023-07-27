@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RNGesus</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .page-container {
+                display: grid;
+                place-items: center;
+            }
+            .background {
+                background-color: #333;
+            }
+            html, body, .page-container {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .rngesus-photo {
+                border: 1px solid lightgray;
+                background-color: #AAA;
+                box-shadow: inset 0 0 5rem #013;
+                max-width: 100%;
+            }
+            .card {
+                background-color: #fff;
+                padding: 1rem;
+                box-shadow: 0 0 5rem #000;
+            }
+        </style>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176137482-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'UA-176137482-1');
+	</script>
+    </head>
+    <body>
+        <div class="page-container background">
+            <div class="center">
+                <div class="card">
+                    <h1 class="text-center">RNGesus</h1>
+                    <img class="rngesus-photo mb-3" src="rngesus.png" />
+                    <p>
+                        Wow, Hail RNGesus! provider of random numbers.
+                    </p>
+                    <p>
+                        What is the size of the number that you seek?
+                    </p>
+                    <form id="number-generator">
+                        <div class="input-group">
+                            <input class="form-control" required type="number" value="20" id="out-of" />
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-outline-dark">Generate!</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="d-none alert alert-dark mt-3" id="result-template">
+                        You got a <strong id="result"></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function submit(e) {
+                e.preventDefault();
+                return false;
+            }
+            var form = document.querySelector("#number-generator");
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                var template = document.querySelector("#result-template")
+                template.classList.remove("d-none");
+                var number = document.querySelector("#out-of");
+                var result = Math.ceil(Math.random() * parseInt(number.value));
+                var resultContainer = document.querySelector("#result");
+                resultContainer.innerHTML = result;
+            });
+        </script>
+    </body>
+</html>
